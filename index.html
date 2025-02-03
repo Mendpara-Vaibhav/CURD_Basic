@@ -20,7 +20,74 @@
             </div>
             <div>
               <label for="lname">Last Name:</label>
-              <input type="text" name="lname" id="lname" required />
+              <input type="text" name="lname" id="lname" />
+            </div>
+            <div>
+              <label for="email">E-mail:</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div>
+              <label for="gender">Gender:</label>
+              <input type="radio" name="gender" id="male" value="Male" />
+              <label for="male">Male</label>
+              <input type="radio" name="gender" id="female" value="Female" />
+              <label for="female">Female</label>
+            </div>
+            <div>
+              <label for="hobby">Hobbies:</label>
+              <input type="checkbox" name="hobby" id="coding" value="coding" />
+              <label for="hobby">Coding</label>
+              <input
+                type="checkbox"
+                name="hobby"
+                id="reading"
+                value="reading"
+              />
+              <label for="hobby">Reading</label>
+              <input
+                type="checkbox"
+                name="hobby"
+                id="exercise"
+                value="exercise"
+              />
+              <label for="hobby">Exercise</label>
+              <input
+                type="checkbox"
+                name="hobby"
+                id="meditation"
+                value="meditation"
+              />
+              <label for="hobby">Meditation</label>
+              <input
+                type="checkbox"
+                name="hobby"
+                id="playing"
+                value="playing"
+              />
+              <label for="hobby">Playing</label>
+            </div>
+            <div>
+              <label for="country">Country:</label>
+              <select name="country" id="country">
+                <option value="">Select One</option>
+                <option value="India">India</option>
+                <option value="US">US</option>
+                <option value="Russia">Russia</option>
+                <option value="Australia">Australia</option>
+                <option value="Nepal">Nepal</option>
+              </select>
+            </div>
+            <div>
+              <label for="age">Age:</label>
+              <input type="range" id="age" name="age" min="0" max="100" />
+            </div>
+            <div>
+              <label for="password">Password:</label>
+              <input type="number" name="password" id="password" />
+            </div>
+            <div>
+              <label for="cpassword">Confirm Password:</label>
+              <input type="number" name="cpassword" id="cpassword" />
             </div>
             <div class="submit-btn">
               <input type="submit" value="Submit" />
@@ -28,11 +95,18 @@
           </form>
         </td>
         <td>
-          <table class="table-data" id="data-list">
+          <table id="data-list">
             <thead>
               <tr>
                 <th>FirstName</th>
                 <th>LastName</th>
+                <th>E-mail</th>
+                <th>Gender</th>
+                <th>Hobbies</th>
+                <th>Country</th>
+                <th>Age</th>
+                <th>Password</th>
+                <th>Confirm Password</th>
                 <th>Option</th>
               </tr>
             </thead>

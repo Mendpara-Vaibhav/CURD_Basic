@@ -3,11 +3,11 @@ form > div {
 }
 
 .submit-btn {
-  margin: 10px;
-  text-align: right;
+  padding: 10px;
+  text-align: center;
 }
 
-.table-data {
+#data-list {
   margin: 50px;
 }
 

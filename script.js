@@ -3,7 +3,7 @@ let selectedRowIndex = null;
 
 function onFormSubmit() {
   let formData = readFormData();
-  // console.log(formData);
+  console.log(formData);
 
   if (selectedRowIndex == null) {
     arrList.push(formData);
@@ -18,6 +18,16 @@ function readFormData() {
   let formData = {};
   formData.fname = document.getElementById("fname").value;
   formData.lname = document.getElementById("lname").value;
+  formData.email = document.getElementById("email").value;
+  formData.gender = document.querySelector("input[name='gender']:checked")
+    ? document.querySelector("input[name='gender']:checked").value
+    : "";
+
+  let hobbies = document.querySelectorAll('input[name="hobby"]:checked');
+  formData.hobby = Array.from(hobbies)
+    .map((hobby) => hobby.value)
+    .join(", ");
+
   return formData;
 }
 
@@ -29,6 +39,9 @@ function updateTable() {
     html += `<tr>`;
     html += `<td>${element.fname}</td>`;
     html += `<td>${element.lname}</td>`;
+    html += `<td>${element.email}</td>`;
+    html += `<td>${element.gender}</td>`;
+    html += `<td>${element.hobby}</td>`;
     html += `<td>${`<a onclick=onEdit(${index}) >Edit</a> / <a onclick=onDelete(${index}) >Delete</a>`}</td> `;
     html += `</tr>`;
   });
@@ -38,6 +51,14 @@ function updateTable() {
 function resetForm() {
   document.getElementById("fname").value = "";
   document.getElementById("lname").value = "";
+  document.getElementById("email").value = "";
+  document
+    .querySelectorAll("input[name='gender']")
+    .forEach((radio) => (radio.checked = false));
+
+  document
+    .querySelectorAll('input[name="hobby"]')
+    .forEach((checkbox) => (checkbox.checked = false));
   selectedRowIndex = null;
 }
 
@@ -46,6 +67,15 @@ function onEdit(index) {
   let selectedRow = arrList[index]; // Access array directly using the index
   document.getElementById("fname").value = selectedRow.fname;
   document.getElementById("lname").value = selectedRow.lname;
+  document.getElementById("email").value = selectedRow.email;
+  document.querySelector(
+    `input[name='gender'][value="${selectedRow.gender}"] `
+  ).checked = true;
+  // document.getElementsByName("hobby").value = selectedRow.hobby;
+  // document.querySelectorAll("input[name='hobby']").value = selectedRow.hobby;
+  document.querySelectorAll('input[name="hobby"]').forEach((checkbox) => {
+    checkbox.checked = selectedRow.hobby.split(", ").includes(checkbox.value);
+  });
 }
 
 function updateData(formData) {
